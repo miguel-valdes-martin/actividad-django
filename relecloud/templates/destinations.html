@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Destinations · Relecloud{% endblock %}
+
+{% block content %}
+  <div class="d-flex align-items-center justify-content-between mb-3">
+    <div>
+      <h1 class="h3 mb-0">Destinations</h1>
+      <small class="text-muted">Explore our exciting travel destinations!</small>
+    </div>
+    <a class="btn btn-primary" href="{% url 'destination_create' %}">+ New destination</a>
+  </div>
+
+  <ul class="list-group">
+    {% for destination in destinations %}
+      <li class="list-group-item">{{ destination.name }}</li>
+    {% empty %}
+      <li class="list-group-item">No destinations yet.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
+
